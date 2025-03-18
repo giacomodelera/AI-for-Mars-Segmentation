@@ -1,22 +1,18 @@
 # AI-for-Mars-Segmentation
 
 ## Abstract
-Blood cell identification is critical in medical diagnostics, particularly for understanding diseases affecting the blood.
+Terrain type detection and image segmentation are two crucial tasks involved in modern Martian missions to ensure rovers correctly follow an appropriate path and interact with the environment according to missions and experiments.
 
-This project focuses on the classification of different types of blood cell images into eight distinct categories using neural networks and deep learning techniques. 
-The primary objective is to develop a model capable of achieving high accuracy in this task using image data.
+This project focuses on image segmentation of martian soil pictures, aiming to develop a deep learning model for segmenting images of Mars terrain into five distinct classes: background, soil, bedrock, sand, and big rocks.
 
-The project began with the construction by hand of a Convolutional Neural Network (CNN), which provided baseline results. To improve performance, it has been decided to use tranfer learning techniques using pre-trained models and it has been found that the EfficientNet family was to best one to employ, with Efficient-NetV2S[3], towards techniques of data augmentation, achieving the best performance.
+The dataset available is composed of grey-scale images, paired with masks with pixel-wise class-segmentation. Due to class imbalance and camera perspective, several operations have to be performed on it from the get-go, in order to obtain a good level of accuracy.
+The architecture of choice is the U-Net architecture. The robust ability of this architecture to contract the image, extract context, and expand the image to localise the image has proven effective in various segmentation tasks.
 
-Additionally, other dataset augmentation techniques were applied using keras-cv to enhance the training dataset and further improve model robustness. 
-
-In the end, also test time augmentation techinques were employed to improve the accuracy.
+Due to the specific context our U-Net implementation is trained on (Martian soil segmentation), an appropriate choice of the loss function has to be taken into consideration in order to learn both global and local features of the given terrain images and associated pixel-wise classes.
 
 ## Context
-This project is an AI-based solution developed for Mars segmentation as part of a competition. The goal was to accurately classify various types of blood cells from images. 
-The project utilizes deep learning models and image processing to achieve high classification accuracy. 
-
-We are proud to have ranked in the top 5 of the competition, demonstrating the effectiveness of the solution.
+This project is an AI-based solution developed for Mars segmentation as part of a competition. The goal was to accurately detect and distinguish different zones of Mars terrain from images. 
+The project utilizes deep learning models and image processing to achieve high segmentation accuracy. 
 
 ## Repository Structure
 * [Report](Report.pdf)
